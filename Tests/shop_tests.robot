@@ -42,3 +42,23 @@ Change User Profile
     Open Personal Information
     Change User Surname  Kraken
 
+
+Purchase Order
+    [Documentation]  TC_04  Add product to cart
+    [Tags]  TC_04
+    Search Term  Dress
+    ${product_count}  Get Product Count
+    should not be equal as integers  ${product_count}  0  msg=Check product count
+    ${name_box}  Get Name On Product Box  1
+    ${price_box}  Get Price On Product Box  1
+    Click On Product Box  1
+    Basic Check Product Detail
+    ${name_detail}  Get Name On Detail
+    ${price_detail}  Get Price On Detail
+    should be equal as strings  ${name_box}  ${name_detail}
+    should be equal as strings  ${price_box}  ${price_detail}
+    Add To Cart
+    Check Product Successfully Added To Cart
+    ${name_cart}  ${price_cart}  Get Name And Price On Cart
+    should be equal as strings  ${name_box}  ${name_cart}
+    should be equal as strings  ${price_box}  ${price_cart}

@@ -38,3 +38,15 @@ Click On Product Box
     [Documentation]  Lorem ipsum
     [Arguments]  ${order}
     click element  ${product_box}\[${order}\]//a[@class="product-name"]
+
+Get Name On Product Box
+    [Documentation]  Lorem ipsum
+    [Arguments]  ${order}
+    ${name}  get text  ${product_box}\[${order}\]//a[@class="product-name"]
+    [Return]  ${name}
+
+Get Price On Product Box
+    [Documentation]  Lorem ipsum
+    [Arguments]  ${order}
+    ${price}  get text  ${product_box}\[${order}\]//div[@class="right-block"]//span[@itemprop="price"]
+    [Return]  ${price}
