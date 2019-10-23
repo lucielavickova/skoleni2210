@@ -11,3 +11,7 @@ Get Random Number
     [Arguments]  ${to}  ${from}=1
     ${random_int} =  Evaluate	random.randint(${from}, ${to})	modules=random
     [Return]  ${random_int}
+
+Open Product Detail
+    [Arguments]  ${product_id}
+    go to  ${URL}?id_product=${product_id}&controller=product

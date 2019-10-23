@@ -1,11 +1,15 @@
 *** Settings ***
 Documentation    Suite description
 Library  SeleniumLibrary
+Library  Collections
+
 Resource  ../Resources/common.robot
 Resource  ../Resources/home_page.robot
 Resource  ../Resources/product_detail_page.robot
 Resource  ../Resources/login_page.robot
 Resource  ../Resources/profile_page.robot
+
+Variables  ../Data/product_details.py
 
 Test Setup  Open Home Page
 Test Teardown  Close All Browsers
@@ -23,7 +27,7 @@ Search For Product
     Search Term  Dress
     Check Search Results  Dress
 
-Check Product Detail
+Check Random Product Detail
     [Documentation]  TC_02 – Check Product Detail
     [Tags]  TC_02
     Search Term  Dress
@@ -31,6 +35,10 @@ Check Product Detail
     ${random_int}  Get Random Number  ${product_count}
     Click On Product Box  ${random_int}
     Basic Check Product Detail
+
+Check Product Detail
+    open product detail     2
+    detailed check product detail  ${PRODUCT_DETAIL_2}
 
 Change User Profile
     [Documentation]  TC_03 Change user name in profile
